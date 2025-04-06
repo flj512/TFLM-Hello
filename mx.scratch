@@ -18,7 +18,20 @@
        
       <Secure/>
             
-      <filestoremove>                           </filestoremove>
+      <filestoremove>
+                
+        <file>
+                      
+          <name>Core/Src/dma.c</name>
+                  
+        </file>
+        <file>
+                      
+          <name>..\Src\custom.c</name>
+                  
+        </file>
+                           
+      </filestoremove>
       <sourceEntriesToRemove>
             
         <sourceEntry/>

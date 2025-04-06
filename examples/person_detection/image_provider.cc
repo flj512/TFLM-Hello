@@ -17,10 +17,13 @@ limitations under the License.
 
 #include "model_settings.h"
 
+#include "read_frame.h"
+
 TfLiteStatus GetImage(int image_width, int image_height, int channels,
                       int8_t* image_data) {
-  for (int i = 0; i < image_width * image_height * channels; ++i) {
-    image_data[i] = 0;
-  }
-  return kTfLiteOk;
+//  for (int i = 0; i < image_width * image_height * channels; ++i) {
+//    image_data[i] = 0;
+//  }
+
+  return read_frame(image_width,image_height,channels,image_data)==0 ? kTfLiteOk:kTfLiteError;
 }

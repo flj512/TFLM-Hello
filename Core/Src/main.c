@@ -17,6 +17,7 @@
   */
 #include <stdio.h>
 #include "main_functions.h"
+#include "read_frame.h"
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
@@ -123,6 +124,7 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
+	  	  detect_frame_header();
 		uint32_t start_tick = HAL_GetTick();
 		//tensorflow_lite_hello();
 		loop();

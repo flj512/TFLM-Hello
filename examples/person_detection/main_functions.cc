@@ -93,11 +93,13 @@ void loop() {
   if (kTfLiteOk !=
       GetImage(kNumCols, kNumRows, kNumChannels, input->data.int8)) {
     MicroPrintf("Image capture failed.");
+    return;
   }
 
   // Run the model on this input and make sure it succeeds.
   if (kTfLiteOk != interpreter->Invoke()) {
     MicroPrintf("Invoke failed.");
+    return;
   }
 
   TfLiteTensor* output = interpreter->output(0);
