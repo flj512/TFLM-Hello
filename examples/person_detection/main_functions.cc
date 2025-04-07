@@ -24,6 +24,7 @@ limitations under the License.
 #include "tensorflow/lite/micro/models/person_detect_model_data.h"
 #include "tensorflow/lite/micro/system_setup.h"
 #include "tensorflow/lite/schema/schema_generated.h"
+#include "tensorflow/lite/micro/micro_time.h"
 
 // Globals, used for compatibility with Arduino-style sketches.
 namespace {
@@ -96,11 +97,13 @@ void loop() {
     return;
   }
 
+  uint32_t start_tick = tflite::GetCurrentTimeTicks();
   // Run the model on this input and make sure it succeeds.
   if (kTfLiteOk != interpreter->Invoke()) {
     MicroPrintf("Invoke failed.");
     return;
   }
+  MicroPrintf("Inference time: %lu ms", (tflite::GetCurrentTimeTicks()-start_tick)*1000/tflite::ticks_per_second());
 
   TfLiteTensor* output = interpreter->output(0);
 

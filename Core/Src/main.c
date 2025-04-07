@@ -114,6 +114,10 @@ int main(void)
   MX_GPIO_Init();
   MX_USART1_UART_Init();
   /* USER CODE BEGIN 2 */
+  toggle_led();
+  coarse_delay(500);
+  toggle_led();
+
   setup();
   /* USER CODE END 2 */
 
@@ -124,14 +128,12 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-	  	  detect_frame_header();
-		uint32_t start_tick = HAL_GetTick();
-		//tensorflow_lite_hello();
-		loop();
-		printf("Person detect done, time: %lu ms\n", HAL_GetTick() - start_tick);
+	detect_frame_header();
+	uint32_t start_tick = HAL_GetTick();
+	//tensorflow_lite_hello();
+	loop();
+	printf("Person detect done, total time: %lu ms\n\n\n", HAL_GetTick() - start_tick);
 
-		coarse_delay(100);
-		toggle_led();
   }
   /* USER CODE END 3 */
 }
