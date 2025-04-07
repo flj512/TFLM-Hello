@@ -11,7 +11,7 @@ Running the default person detection model in TFLM repo in release mode
 |Model Size| 300KB|
 |Text | 365KB|
 |BSS|142KB|
-# Borad Config
+# Board Config
 Config UART/GPIO and prepare development environment.  
 ## UART
 the UART Tx/Rx is connect to:  
@@ -74,4 +74,5 @@ The device will print the results to UART after receiving image:
 ```
 # Person Detection Model Graph
 ![person detection graph](https://github.com/flj512/TFLM-Hello/blob/master/person_detect.tflite.png)
+
 
