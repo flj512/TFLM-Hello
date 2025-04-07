@@ -33,6 +33,10 @@ Here is an example that send image to the UART in Python.
 import cv2
 import matplotlib.pyplot as plt
 
+# Open serial port
+SERIAL_PORT = '/dev/ttyUSB0' 
+BAUD_RATE = 115200   
+port = serial.Serial(SERIAL_PORT, BAUD_RATE, timeout=1)
 
 FRAME_HEADER = b'\x5A\xB3\x6D\xFF'
 WIDTH = 96
