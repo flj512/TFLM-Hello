@@ -28,7 +28,7 @@ If you are using ST-link to debug, please change the debug and run configuration
 # Build
 Build the project and download it to the device's ROM.  
 The device will light the LED on first and start waiting for user's input from the UART.  
-Here is an example that send image to the UART in Python.
+Here is an example demonstrates how to send image to the UART in Python.
 ```
 import cv2
 import matplotlib.pyplot as plt
@@ -72,3 +72,6 @@ The device will print the results to UART after receiving image:
 [10:43:42.863] person score:-100 no person score 100
 [10:43:42.869] Person detect done, total time: 1044 ms
 ```
+# Person Detection Model Graph
+![person detection graph](https://github.com/flj512/TFLM-Hello/blob/master/person_detect.tflite.png)
+
