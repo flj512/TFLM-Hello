@@ -1,11 +1,11 @@
 # TFLM-Hello
-This repo run the Tensorflow Lite Micro([TFLM](https://github.com/tensorflow/tflite-micro/tree/main)) with CMSIS_NN accelaration on the STM32F429IGT6.  
+This repo run the Tensorflow Lite Micro([TFLM](https://github.com/tensorflow/tflite-micro/tree/main)) with CMSIS_NN acceleration on the STM32F429IGT6.  
 The core is Cortex-M4 and the max frequency is 180Mhz.  
-The device is running as an inference server and the user can send raw gray image bytes to the UART,  
-the inference server will print the inference result and time info to the UART.  
+The device is running as an inference server and the user can send raw gray image bytes to the UART.  
+The inference server will print the inference result and time info to the UART.  
 # Performance
 Running the default person detection model in TFLM repo in release mode  
-|Input Image|96x96x1|
+|Input Image Size |96x96x1|
 |----------|-------------|
 |Inference Time@180Mhz | 235 ms|
 |Model Size| 300KB|
@@ -18,15 +18,15 @@ the UART Tx/Rx is connect to:
 TX: PA9  
 RX: PA10  
 ## GPIO
-This repo use GPIO `PD12` to drive LED to indicate if the program is running.
+This device use GPIO `PD12` to drive LED to indicate if the program is running.
 ## Frequence
-the core frequence is 180Mhz.
+The core frequency is 180Mhz.
 ## Dev tool
 IDE: STM32CubeIDE  
-Use OpenCID to debug and program, prepare a CMSIS_DAP debugger with SWD.  
+Use OpenOCD to debug and program, prepare a CMSIS_DAP debugger with SWD.  
 If you are using ST-link to debug, please change the debug and run configuration in STM32CubeIDE.  
 # Build
-Build the project and download it to the device's ROM.  
+Build the project and download it to the device's ROM (The debug mode is 3x slower than release mode).  
 The device will light the LED on first and start waiting for user's input from the UART.  
 Here is an example demonstrates how to send image to the UART in Python.
 ```
